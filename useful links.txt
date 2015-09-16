@@ -1,0 +1,2 @@
+HTML tags reference: http://www.w3schools.com/tags/
+CSS properties reference: http://www.w3schools.com/cssref/
