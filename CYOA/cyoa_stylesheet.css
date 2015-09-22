@@ -1,0 +1,29 @@
+.highlight {
+	color:brown;
+	font-style:italic;
+}
+
+body {
+	background-color:brown;
+}
+
+.big {
+	font-size:30px;
+}
+
+.dialogue {
+	font-weight:bold;
+	font-family:serif;
+}
+
+span {
+	color:black;
+	font-family:serif;
+	font-size:20px;
+	font-weight:bold;
+}
+
+* {
+	color:white;
+	font-family: Calibri;
+}
