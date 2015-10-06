@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+
+		<title>Javascript</title>
+
+		<script>
+
+			var check = 0;
+
+			var helloWorld = function() {
+				console.log("If the function runs this text will appear in the console!");
+				check++;
+				if (check < 5) {
+					alert("Hello World!");
+				} else if (check < 10) {
+					alert("STOP CLICKING ON ME!!");
+				} else while(true) {
+					alert("JUST GO AWAY");
+				}	
+			}
+
+		</script>
+
+	</head>
+
+	<body>
+		<button type="button" onclick="helloWorld()">Hello World</button>
+	</body>
+
+</html>
