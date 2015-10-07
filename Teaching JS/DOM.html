@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+
+		<title>Accessing the DOM</title>
+
+		<script>
+			
+			var changeTextColor = function() {
+				var color = prompt("What color?", "red");
+				document.getElementById("changeMe").style.color = color;
+			}
+
+			var changeText = function() {
+				var toInsert = prompt("What should the paragraph say?", "Type here");
+				document.getElementById("changeMe").innerHTML = toInsert;
+			}
+
+			var changeTheme = function(text, background) {
+				document.getElementById("changeMe").style.color = text;
+				document.getElementsByTagName("body")[0].style.backgroundColor = background;
+			}
+
+		</script>
+
+	</head>
+
+	<body>
+		<button type="button" onclick="changeTextColor()">What Text Color Should I Have?</button>
+		<br /><br />
+		<p onclick = "changeText()" id = "changeMe">What Should I Say?</p>
+		<br />
+		<button type="button" onclick="changeTheme('yellow', 'red')">Change Theme to McDonalds</button>
+		<button type="button" onclick="changeTheme('red', 'green')">Change Theme to Christmas</button>
+		<button type="button" onclick="changeTheme('lime', 'black')">Change Theme to Hacking</button>
+	</body>
+
+</html>
