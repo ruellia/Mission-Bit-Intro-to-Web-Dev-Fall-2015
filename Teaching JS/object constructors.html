@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+
+		<title>Object Constructors</title>
+
+		<script>
+
+			var mc;
+
+			var rpgCharacter = function (lvl, hp, mp, job) {
+				this.level = lvl;
+				this.hp = hp;
+				this.mp = mp;
+				this.job = job;
+			}
+
+			var changeStatus = function() {
+				document.getElementById("status").innerHTML = "You are a Level " + mc.level + " " + mc.job + " with " + mc.hp + " HP and " + mc.mp + " MP.";
+				if (mc.hp < 0) {
+					if (mc.job === "Warrior") {
+						document.getElementById("change").src = "http://www.videogamesprites.net/FinalFantasy6/Party/Sabin/Sabin%20-%20Dead.gif";
+					} else {
+						document.getElementById("change").src = "http://www.videogamesprites.net/FinalFantasy6/Party/Shadow/Shadow%20-%20Dead.gif";
+					}
+					document.getElementById("gameover").innerHTML = "You died :(";
+				}
+			}
+
+			var initialize = function() {
+				var choice = prompt("Would you like to be a WARRIOR or a THIEF?").toUpperCase();
+				if (choice === "WARRIOR") {
+					mc = new rpgCharacter(10, 150, 30, "Warrior");
+					document.getElementById("change").src = "http://www.videogamesprites.net/FinalFantasy6/Party/Sabin/Sabin%20-%20Battle.gif";
+				} else if (choice === "THIEF") {
+					mc = new rpgCharacter(10, 80, 30, "Thief");
+					document.getElementById("change").src = "http://www.videogamesprites.net/FinalFantasy6/Party/Shadow/Shadow%20-%20Battle.gif";
+				} else {
+					alert("Please choose either Warrior or Thief!");
+					return;
+				}
+				changeStatus();
+			}
+
+			var fight = function() {
+				var dmg = Math.floor(Math.random() * 31) + 20;
+				mc.hp = mc.hp - dmg;
+				changeDamage(dmg);
+				changeStatus();
+			}
+
+			var changeDamage = function(number) {
+				document.getElementById("damage").innerHTML = "You were hit for " + number + " damage!";
+			}
+
+		</script>
+
+	</head>
+
+	<body>
+		<button type="button" onclick="initialize()">Create Your Character</button>
+		<button type="button" onclick="fight()">Fight!</button>
+		<br /><br />
+		<img id = "change">
+		<p id = "status"></p>
+		<p id = "damage"></p>
+		<p id = "gameover"></p>
+	</body>
+
+</html>
