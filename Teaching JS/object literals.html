@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+
+		<title>Object Literals in JS</title>
+
+		<script>
+			var count = 0;
+
+			var ruelliaStats = {
+				age: "19",
+				firstName: "Ruellia",
+				lastName: "Zhang",
+				hobby: "video games",
+				secret: function(count) {
+					if (count < 3) {
+						console.log("讀得了中文嗎？");
+					} else {
+						console.log("yesterday I redownloaded maplestory to save my old usernames from getting deleted and now I'm really tempted to play :(((");
+					}
+				}
+			}
+
+			var whoAmI = function() {
+				alert("Ruellia's age is " + ruelliaStats.age);
+				alert("Ruellia's full name is " + ruelliaStats.firstName + ruelliaStats.lastName);
+				alert("Ruellia likes " + ruelliaStats.hobby);
+			}
+
+			var secret = function() {
+				var text = document.getElementById("changeMe");
+				if (count === 0) {
+					text.style.color = "lime";
+					text.style.fontSize = 50;
+					text.innerHTML = "CLASSIFIED";
+					document.getElementsByTagName("body")[0].style.backgroundColor = "black";
+				}
+				if (count > 3) {
+					text.innerHTML = "...somewhere?";
+				}
+				ruelliaStats.secret(count);
+				count++;
+			}
+
+		</script>
+
+	</head>
+
+	<body>
+		<button type="button" onclick="whoAmI()">Who is Ruellia?</button>
+		<button type="button" onclick="secret()">Ruellia's secret is...</button>
+		<p id = "changeMe"></p>
+	</body>
+
+</html>
