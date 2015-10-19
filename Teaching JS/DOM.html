@@ -15,12 +15,16 @@
 
 			var changeText = function() {
 				var toInsert = prompt("What should the paragraph say?", "Type here");
+				if (toInsert.length === 0) {
+					return;
+				}
 				document.getElementById("changeMe").innerHTML = toInsert;
 			}
 
-			var changeTheme = function(text, background) {
+			var changeTheme = function(text, background, font) {
 				document.getElementById("changeMe").style.color = text;
 				document.getElementsByTagName("body")[0].style.backgroundColor = background;
+				document.getElementById("changeMe").style.fontFamily = font;
 			}
 
 		</script>
@@ -33,9 +37,9 @@
 		<br /><br />
 		<p onclick = "changeText()" id = "changeMe">What Should I Say?</p>
 		<br />
-		<button type="button" onclick="changeTheme('yellow', 'red')">Change Theme to McDonalds</button>
-		<button type="button" onclick="changeTheme('red', 'green')">Change Theme to Christmas</button>
-		<button type="button" onclick="changeTheme('lime', 'black')">Change Theme to Hacking</button>
+		<button type="button" onclick="changeTheme('yellow', 'red', 'serif')">Change Theme to McDonalds</button>
+		<button type="button" onclick="changeTheme('red', 'green', 'sans-serif')">Change Theme to Christmas</button>
+		<button type="button" onclick="changeTheme('lime', 'black', 'cursive')">Change Theme to Hacking</button>
 	
 	</body>
 

@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+
+		<title>Javascript Exercise Solutions</title>
+		<script>
+
+			var track = 0; 
+			
+			var fizzBuzz = function() {
+				for (var i = 1; i < 101; i++) {
+					var toReturn = "";
+					if (i%3 === 0) {
+						toReturn += "Fizz";
+					}
+					if (i%5 === 0) {
+						toReturn += "Buzz";
+					}
+					if (toReturn.length > 0) {
+						console.log(toReturn);
+					} else {
+						console.log(i);
+					}
+				}
+			}
+
+			var madLibs = function() {
+				var verb1 = prompt("Please enter a verb.", "saw");
+				var noun1 = prompt("Please enter a noun.", "girl");
+				var adj1 = prompt("Please enter an adjective.", "strange");
+				console.log("The " + adj1 + " " + noun1 + " " + verb1 + " me.");
+			}
+
+			var reverseHashtags = function() {
+				for (var i = 7; i > 0; i--) {
+					var toOutput = "";
+					for (var x = 0; x < i; x++) {
+						toOutput += "#";
+					}
+					console.log(toOutput);
+				}
+			}
+
+			var CYOA = function() {
+				track++;
+				if (track === 1) {
+					document.getElementById("toChange").innerHTML = "You walk into a dark room.";
+					document.getElementsByTagName("body")[0].style.backgroundColor = "grey";
+				}
+				if (track === 2) {
+					document.getElementById("toChange").innerHTML = "Someone is there...";
+				}
+				//and continue as the story continues.
+				//you can make empty <img> tags too and insert images into them by manipulating the .src property of the images
+
+			}
+
+			var maxMin = function(one, two, three) {
+				if (one > two) {
+					if (one > three) {
+						console.log("The max number is ")
+					}
+				}
+			}
+
+			var countBs = function(toAnalyze) {
+				countChar(toAnalyze, "B");
+			}
+
+			var countChar = function (toAnalyze, character) {
+				var toReturn = 0;
+				for (var i = 0; i < toAnalyze.length + 1; i++) {
+					if (toAnalyze.charAt(i) === character) {
+						toReturn++;
+					}
+				}	
+				console.log(toReturn);
+				return toReturn;
+			}
+		</script>
+
+	</head>
+
+	<body>
+		
+		<button onclick="fizzBuzz()">FizzBuzz</button>
+		<br><br>
+		<button onclick="madLibs()">Mad Libs</button>
+		<br><br>
+		<button onclick="reverseHashtags()">Reverse Hashtags</button>
+		<br><br>
+		<button onclick="countBs('BCB')">Count Bs</button>
+		<br><br>
+		<button onclick="CYOA()">CYOA</button>
+		<p id = "toChange"></p>
+
+	</body>
+
+</html>
