@@ -45,7 +45,7 @@ var fight = function() {
 		return;
 	}
 	changeEnemyImage();
-	var dmg = Math.floor(Math.random() * 31) + 20;
+	var dmg = Math.floor(Math.random() * 21) + 20;
 	mc.hp = mc.hp - dmg;
 	changeDamage(dmg);
 	if (checkGameOver()) {
