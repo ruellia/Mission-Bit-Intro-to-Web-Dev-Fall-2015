@@ -7,6 +7,12 @@ var rpgCharacter = function (lvl, hp, mp, job, condition) {
 	this.mp = mp;
 	this.job = job;
 	this.condition = condition;
+	this.damageTaken = function(dmg) {
+		this.hp = this.hp - dmg;
+	}
+	this.damageDone = function() {
+		return (Math.random() * 21) + 30;
+	}
 }
 var changeStatus = function() {
 	document.getElementById("jobTitle").className = mc.job;
@@ -16,10 +22,10 @@ var changeStatus = function() {
 	document.getElementById("mp").innerHTML = mc.mp;
 	document.getElementById("condition").innerHTML = mc.condition;
 }
+
 var initialize = function() {
 	if (characterExists) {
-		var check = confirm("Are you sure you want to make a new character?");
-		if (!check) {
+		if (!confirm("Are you sure you want to make a new character?")) {
 			return;
 		}
 	}
@@ -28,9 +34,9 @@ var initialize = function() {
 		alert("Please choose either WARRIOR of THIEF!");
 		return;
 	} else if (choice === "WARRIOR") {
-		mc = new rpgCharacter(1, 100, 15, "WARRIOR", "Normal");
+		mc = new rpgCharacter(1, 100, 15, choice, "Normal");
 	} else {
-		mc = new rpgCharacter(1, 75, 30, "THIEF", "Normal");
+		mc = new rpgCharacter(1, 75, 30, choice, "Normal");
 	}
 	characterExists = true;
 	document.getElementById("fight").disabled = false;
@@ -46,7 +52,7 @@ var fight = function() {
 	}
 	changeEnemyImage();
 	var dmg = Math.floor(Math.random() * 21) + 20;
-	mc.hp = mc.hp - dmg;
+	mc.damageTaken(dmg);
 	changeDamage(dmg);
 	if (checkGameOver()) {
 		return;
