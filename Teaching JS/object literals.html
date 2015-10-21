@@ -14,19 +14,19 @@
 				firstName: "Ruellia",
 				lastName: "Zhang",
 				hobby: "video games",
-				secret: function(count) {
+				secret: function() {
 					if (count < 3) {
 						console.log("讀得了中文嗎？");
 					} else {
 						console.log("yesterday I redownloaded maplestory to save my old usernames from getting deleted and now I'm really tempted to play :(((");
 					}
+					count++;
 				}
 			}
 
 			var whoAmI = function() {
-				ruelliaStats.age = 20;
 				alert("Ruellia's age is " + ruelliaStats.age);
-				alert("Ruellia's full name is " + ruelliaStats.firstName + ruelliaStats.lastName);
+				alert("Ruellia's full name is " + ruelliaStats.firstName + " " + ruelliaStats.lastName);
 				alert("Ruellia likes " + ruelliaStats.hobby);
 			}
 
@@ -38,11 +38,10 @@
 					text.innerHTML = "CLASSIFIED";
 					document.getElementsByTagName("body")[0].style.backgroundColor = "black";
 				}
+				ruelliaStats.secret();
 				if (count > 3) {
 					text.innerHTML = "...somewhere?";
 				}
-				ruelliaStats.secret(count);
-				count++;
 			}
 
 		</script>
