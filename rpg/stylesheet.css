@@ -1,0 +1,38 @@
+#statusScreen {
+	float:right;
+	width: 500px;
+	height: 350px;
+	border: 5px double black;
+	visibility: hidden;
+}
+
+#enemyScreen {
+	float:right;
+	width: 500px;
+	height: 350px;
+}
+
+.centeredText {
+	text-align:center;
+}
+
+.heading {
+	font-family: serif;
+	font-size:20px;
+	font-weight:bolder;
+}
+
+.centeredNonText {
+	display:block;
+	margin:auto;
+}
+
+.WARRIOR {
+	color:brown;
+	font-weight:bold;
+}
+
+.THIEF {
+	color:grey;
+	font-style:italic;
+}
